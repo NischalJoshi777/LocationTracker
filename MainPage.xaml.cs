@@ -19,6 +19,9 @@ namespace LocationTracker
             Title = "MainView";
         }
 
+    /// <summary>
+    /// INITIALIZES SQLITE DATABASE
+    /// </summary>
         private void InitializeDatabase()
         {
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Locations.db");

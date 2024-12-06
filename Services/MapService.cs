@@ -4,6 +4,10 @@ using SQLite;
 
 namespace LocationTracker
 {
+
+    // <summary>
+    /// Service class responsible for managing and updating the map with various features like heatmaps.
+    /// </summary>
     public class MapService
     {
         private readonly Microsoft.Maui.Controls.Maps.Map _map;
@@ -15,6 +19,9 @@ namespace LocationTracker
             _database = database;
         }
 
+        /// <summary>
+        /// Updates the map with a heatmap overlay based on location data stored in the database.
+        /// </summary>
         public void UpdateMapWithHeatmap()
         {
             _map.MapElements.Clear();
@@ -23,10 +30,13 @@ namespace LocationTracker
             AddHeatmapOverlay(heatmapData);
         }
 
+    /// function to add heatmap overalay on the saved location. 
         private void AddHeatmapOverlay(List<HeatmapDataPoint> heatmapData)
         {
             foreach (var dataPoint in heatmapData)
             {
+
+            // Create a circle representing the heatmap data point
                 var circle = new Microsoft.Maui.Controls.Maps.Circle
                 {
                     Center = new Location(dataPoint.Latitude, dataPoint.Longitude),

@@ -6,11 +6,20 @@ namespace LocationTracker
     {
         private readonly SQLiteConnection _database;
 
+         /// <summary>
+        /// Initializes the service with a database connection.
+        /// </summary>
+        /// <param name="database">SQLite database connection.</param>
+
         public LocationService(SQLiteConnection database)
         {
             _database = database;
         }
 
+        /// <summary>
+        /// Retrieves the user's current or last known location and saves it to the database.
+        /// </summary>
+        /// <returns>A Task representing the asynchronous operation.</returns>
         public async Task GetLocationAndSaveAsync()
         {
             try
